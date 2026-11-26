@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: dlq-consumer
+  cloud:
+    aws:
+      # Credenciais: lidas das variáveis de ambiente padrão da AWS
+      # (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY e, se houver, AWS_SESSION_TOKEN)
+      region:
+        static: ${AWS_REGION:us-east-1}
+
+app:
+  sqs:
+    # Nome da DLQ (não a URL). Pode ser sobrescrito pela variável de ambiente.
+    dlq-name: ${SQS_DLQ_NAME:pedidos-dlq}
